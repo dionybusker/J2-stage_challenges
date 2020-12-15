@@ -4,20 +4,44 @@
 	<meta charset="utf-8"/>
 	<title>Ja-klikker-3</title>
 	<style>
-		body {font-family: sans-serif;}
-		#buttonContainer {
+        body {font-family: sans-serif;}
+        #buttonContainer {
+            width: 200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 100px 100px;
+            grid-gap: 5px;
+        }
 
-		}
+        button {
+            width: 100px;
+            height: 100px;
+            font-weight: bold;
+            font-size: 20px;
+        }
 
-		h2 {
-			font-size: 25px;
-			margin-left: 20px;
-		}
+        #coding-instructions {
+            font-size: 20px;
+            margin-left: 20px;
+        }
 
-		h1 {
-			font-size: 40px;
- 			margin-left: 20px;			
-		}
+        h2 {
+            font-size: 25px;
+            margin-left: 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-left: 20px;			
+        }
+
+        .state0 {
+            background-color: #f88;
+        }
+
+        .state1 {
+            background-color: #8f8;
+        }
 
 	</style>
 </head>
@@ -71,6 +95,18 @@
 		// buttons-elements should contain a clickButton function attached on its click-event
 		// buttons-elements should be appended to the buttonContainer
 
+        var btnContainer = document.getElementById("buttonContainer");
+
+        for (var i = 0; i < buttonsToSwitch.length; i++) {
+            var btn = document.createElement("button");
+                btn.className = "state0";
+                btn.innerText = "Nee";
+                btn.id = i;
+                btn.onclick = clickButton;
+                
+            btnContainer.append(btn);
+        }
+
 	}
 
 	function switchButton(buttonElement){
@@ -85,6 +121,28 @@
 		// belongs to this button-element element
 		// uses keyword 'this' to refer to the button-element that is clicked
 
+        var btn = this;
+
+        var btnNext = buttonsToSwitch[btn.id];
+        var btnNextBtn = btnNext[1] != null ? document.getElementById(btnNext[1]) : null;
+        
+        if (btn.className == "state0") {
+            btn.innerText = "Ja";
+            btn.className = "state1";
+        } else {
+            btn.innerText = "Nee";
+            btn.className = "state0";
+        }
+
+        if (btnNextBtn != null) {
+            if (btnNextBtn.className == "state0") {
+                btnNextBtn.innerText = "Ja";
+                btnNextBtn.className = "state1";
+            } else {
+                btnNextBtn.innerText = "Nee";
+                btnNextBtn.className = "state0";
+            }
+        }
 	}
 
 	createButtons();
