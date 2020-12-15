@@ -2,11 +2,16 @@
 
     var number1 = prompt('Getal1:');
     var number2 = prompt('Getal2:');
-
+    var result;
 
     function calculateDifference(){
         // here comes the logic for calculation of the difference 
-
+        if (number1 > number2) {
+            result = number1 - number2;
+        } else {
+            result = number2 - number1;
+        }
+        return result;
     }
     
     var difference = calculateDifference();
