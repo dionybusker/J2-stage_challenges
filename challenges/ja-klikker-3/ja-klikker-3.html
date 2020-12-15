@@ -1,0 +1,92 @@
+<!doctype HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ja-klikker-3</title>
+	<style>
+		body {font-family: sans-serif;}
+		#buttonContainer {
+
+		}
+
+		h2 {
+			font-size: 25px;
+			margin-left: 20px;
+		}
+
+		h1 {
+			font-size: 40px;
+ 			margin-left: 20px;			
+		}
+
+	</style>
+</head>
+<body>
+	<h1>Ja-klikker-3 for the coding die-hards</h1>
+	<h2>Maak deze ja-klikker-3 pagina<br>lijkend op en werkend volgens<br>filmpje ja-klikker-3.mkv</h2>
+
+	<div id="buttonContainer">
+	</div>
+
+	<ul id="coding-instructions">
+		<li>Gebruik css-grid display</li>
+		<li>buttons zijn 100 pixels bij 100 pixels groot</li>
+		<li>Centreer de buttons</li>
+		<li>Pas de class "state0" toe op buttons als ze op Nee staan: state0 geeft als achtergrondkleur: #f88</li>
+		<li>Pas de class "state1" toe op buttons als ze op Ja staan: state1 geeft als achtergrondkleur: #8f8</li>
+		<li>fontgrootte: 20 pixels</li>
+		<li>fontgewicht: vet</li>
+		<li>Werk de JavaScript functions uit volgens de inline documentation</li>
+		<li>Gebruik de arrays buttonText en buttonsToSwitch</li>
+		<li>Maak efficiënte DRY code</li>
+		<li>Werk zonder gebruik van het internet</li>
+		<li>Tel het aantal keer dat je w3schools.com toch hebt geraadpleegd</li>
+	</ul>
+	<h2>Het aantal keer dat ik w3schools.com heb geraadpleegd: <strong>0</strong></h2>
+	<h2>De tijd in minuten die ik nodig had voor deze uitdaging <strong>60</strong></h2>
+</body>
+</html>
+
+
+<script>
+	// 
+	// code below should create buttons with two states 0 and 1, a button with state==0 shows 'Nee' and a button with state==1 shows 'Ja'
+	// when you press a certain button some buttons will switch their state.
+
+	// array 'buttonText' determines the button-text for the two button-states 0 and 1
+	buttonText = ['Nee','Ja'];
+
+	// array 'buttonsToSwitch' contains arrays with indexes of the buttons to be switched between states 0 and 1
+	buttonsToSwitch = [
+		[0,1],	// buttonsToSwitch[0] is [0,1] means: if button 0 pressed, buttons 0 and 1 should switch
+		[1,2],	// buttonsToSwitch[1] is [1,2] means: if button 1 pressed, buttons 1 and 2 should switch
+		[2],	// buttonsToSwitch[2] is [2] means: if button 2 pressed, only button 2 should switch
+		[3,0]	// buttonsToSwitch[3] is [3,0] means: if button 3 pressed, buttons 3 and 0 should switch
+	]
+
+	function createButtons(){
+		// this function creates as much HTML button-elements as there are elements in the array 'switchButtons'
+		// button-elements should contain a property: state (initial 0), a buttonText on top 
+		// button-elements should contain a property or id to identify the button as 0,1,2 or 3
+		// buttons-elements should contain a clickButton function attached on its click-event
+		// buttons-elements should be appended to the buttonContainer
+
+	}
+
+	function switchButton(buttonElement){
+		// this function switches the state of the passed buttonElement between states 0 and 1
+		// the buttonElement gets a class according to the state, that is: state0 and state1
+
+	}
+
+	function clickButton(){
+		// this function is attached to click event of the HTML button-elements
+		// this function switches all relevant button-elements according to the element in array buttonsToSwitch that 
+		// belongs to this button-element element
+		// uses keyword 'this' to refer to the button-element that is clicked
+
+	}
+
+	createButtons();
+
+</script>
