@@ -4,25 +4,44 @@
 	<meta charset="utf-8"/>
 	<title>Ja-klikker-2</title>
 	<style>
-		body {font-family: sans-serif;}
-		#buttonContainer {
+        body {font-family: sans-serif;}
+        #buttonContainer {
+            width: 200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 100px 100px;
+            grid-gap: 5px;
+        }
 
-		}
+        button {
+            width: 100px;
+            height: 100px;
+            font-weight: bold;
+            font-size: 20px;
+        }
 
-		#coding-instructions {
-			font-size: 20px;
- 			margin-left: 20px;
-		}
+        #coding-instructions {
+            font-size: 20px;
+            margin-left: 20px;
+        }
 
-		h2 {
-			font-size: 25px;
-			margin-left: 20px;
-		}
+        h2 {
+            font-size: 25px;
+            margin-left: 20px;
+        }
 
-		h1 {
-			font-size: 40px;
- 			margin-left: 20px;			
-		}
+        h1 {
+            font-size: 40px;
+            margin-left: 20px;			
+        }
+
+        .state0 {
+            background-color: #f88;
+        }
+
+        .state1 {
+            background-color: #8f8;
+        }
 
 	</style>
 </head>
@@ -30,10 +49,10 @@
 	<h1>Ja-klikker-2</h1>
 	<h2>Maak deze ja-klikker-2 pagina<br>lijkend op en werkend volgens<br>filmpje ja-klikker-2.mkv</h2>
 	<div id="buttonContainer">
-		<button>Nee</button>
-		<button>Nee</button>
-		<button>Nee</button>
-		<button>Nee</button>
+        <button id="1" class="state0" onclick="clickButton(1)">Nee</button>
+        <button id="2" class="state0" onclick="clickButton(2)">Nee</button>
+        <button id="3" class="state0" onclick="clickButton(3)">Nee</button>
+        <button id="4" class="state0" onclick="clickButton(4)">Nee</button>
 	</div>
 
 	<ul id="coding-instructions">
@@ -55,9 +74,32 @@
 
 
 <script>
-	function clickButton(){
+    function clickButton(id) {
+        var btn = document.getElementById(id);
+        var btnNext = btn.id == "4" ? 1 : id + 1;
 
+        if (btn.id == "3") {
+            btnNext = 0;
+        }
+
+        var btnNextBtn = document.getElementById(btnNext);
+
+        if (btn.className == "state0") {
+            btn.innerText = "Ja";
+            btn.className = "state1";
+        } else {
+            btn.innerText = "Nee";
+            btn.className = "state0";
+        }
+
+        if (btnNext != 0) {
+            if (btnNextBtn.className == "state0") {
+                btnNextBtn.innerText = "Ja";
+                btnNextBtn.className = "state1";
+            } else {
+                btnNextBtn.innerText = "Nee";
+                btnNextBtn.className = "state0";
+            }
+        }
 	}
-
-
 </script>
